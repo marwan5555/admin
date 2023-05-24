@@ -18,7 +18,7 @@ type Props = AppProps & {
 export default function MyApp({ Component, pageProps }: Props) {
 
     const router = useRouter();
-    const isLoginPage = router.pathname === '/auth/login';
+    // const isLoginPage = router.pathname === '/auth/login';
     //const { isAuthenticated, logout } = useContext(AuthContext);
 
     const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -32,17 +32,17 @@ export default function MyApp({ Component, pageProps }: Props) {
         return () => clearTimeout(timeout)
     }, []);
 
-    useEffect(() => {
-        const token = localStorage.getItem('authToken');
-        if (!isAuthenticated && !isLoginPage && !token) {
-            router.push('/auth/login');
-        }
+    // useEffect(() => {
+    //     const token = localStorage.getItem('authToken');
+    //     if (!isAuthenticated && !isLoginPage && !token) {
+    //         router.push('/auth/login');
+    //     }
 
-    }, [isAuthenticated, isLoginPage, router]);
+    // }, [isAuthenticated, isLoginPage, router]);
 
-    if (!isAuthenticated && !isLoginPage) {
-        return null;
-    }
+    // if (!isAuthenticated && !isLoginPage) {
+    //     return null;
+    // }
 
 
     if (Component.getLayout) {
